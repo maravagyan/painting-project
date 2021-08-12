@@ -1,0 +1,48 @@
+<div class="canvas-component">
+    <div class="controls-panel">
+      <select class="size-selector"
+              [(ngModel)]="selectedSize"
+              (change)="onSizeSelect()"
+      >
+        <option *ngFor="let size of canvasSizes"
+                [value]="size">
+          {{size}}
+        </option>
+      </select>
+      <button class="button-generate btn"
+              (click)="onGenerateCircles()">
+        Generate
+      </button>
+      <div class="picker-wrapper">
+        <div class="picker-inner"
+             [style.background-color]="currentColor"></div>
+        <input class="picker" type="color"
+               [(ngModel)]="currentColor" />
+      </div>
+      <button class="button-fill-all btn"
+              (click)="onFillCircles()">Fill all</button>
+      <button class="button-reset btn"
+              (click)="onResetColor()">Reset</button>
+      
+      <button class="button-fill-all btn"
+              (click)="onSave()">Save</button>
+      <input type="text" [(ngModel)]="projectName" />
+      <div class="projects-container">
+        <div *ngFor="let project of projectList"
+             class="project"
+             [ngClass]="{'active': project.isActive}"
+             (click)="selectProject(project)">
+          <p>Project: {{project.name}}</p>
+        </div>
+      </div>
+      <button class="delete btn" (click)="deleteProject()">delete</button>
+    </div>
+    <div class="circles-container container-{{selectedSize}}">
+      <app-circle *ngFor="let circle of circles"
+                  [color]="circle.color"
+                  (click)="onCircleClick(circle)">
+      </app-circle>
+    </div>
+  </div>
+  
+  

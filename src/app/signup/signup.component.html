@@ -1,0 +1,103 @@
+<div class="p-5 text-center bg-light">
+  <h4 class="mb-3">Register</h4>
+</div>
+
+<form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
+    <div id="input-group-1" role="group" class="form-group">
+      <label id="input-group-1__BV_label_" for="input-1" class="d-block">First Name</label>
+      <div>
+        <input 
+          id="input-1"
+          class="form-control"
+          type="text"
+          maxlength="50"
+          autocomplete="off"
+          placeholder="Enter Your First Name"
+          required
+          formControlName="first_name"
+          [ngClass]="{'is-invalid' : submitted && forSignUp?.first_name?.errors?.required}"
+        >
+        <div *ngIf="submitted && (forSignUp?.first_name?.errors?.required)" class="invalid-feedback">
+          {{'First Name is required.'}}
+        </div>
+      </div>
+    </div>
+    <div id="input-group-1" role="group" class="form-group">
+      <label id="input-group-1__BV_label_" for="input-2" class="d-block">Last Name</label>
+      <div>
+        <input 
+          id="input-2"
+          class="form-control"
+          type="text"
+          maxlength="50"
+          autocomplete="off"
+          placeholder="Enter Your Last Name"
+          required
+          formControlName="last_name"
+          [ngClass]="{'is-invalid' : submitted && forSignUp?.last_name?.errors?.required}"
+        >
+        <div *ngIf="submitted && forSignUp?.last_name?.errors?.required" class="invalid-feedback">
+          {{'Last Name is required.'}}
+        </div>
+      </div>
+    </div>
+    <div id="input-group-1" role="group" class="form-group">
+      <label id="input-group-1__BV_label_" for="input-3" class="d-block">Email</label>
+      <div>
+        <input 
+          id="input-3"
+          class="form-control"
+          type="email"
+          maxlength="50"
+          pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,50}$'
+          autocomplete="off"
+          placeholder="Enter Email"
+          required
+          formControlName="email"
+          [ngClass]="{'is-invalid' : submitted && (forSignUp?.email?.errors?.email || forSignUp?.email?.errors?.required)}"
+        >
+        <div *ngIf="submitted && (forSignUp?.email?.errors?.email || forSignUp?.email?.errors?.required)" class="invalid-feedback">
+            {{((forSignUp?.email?.errors?.email && !forSignUp?.email?.errors?.required)) ? 'Email is wrong.' : (((!forSignUp?.email?.errors?.email && forSignUp?.email?.errors?.required)) ? 'Email is required.' : null)}}
+      </div>
+      </div>
+    </div>
+    <div id="input-group-2" role="group" class="form-group">
+      <label id="input-group-2__BV_label_" for="input-4" class="d-block">Password</label>
+      <div>
+        <input
+          id="input-4"
+          class="form-control"
+          type="password"
+          maxlength="25"
+          autocomplete="off"
+          placeholder="Enter Password"
+          required
+          formControlName="password"
+          [ngClass]="{'is-invalid' : submitted && forSignUp?.password?.errors?.required}"
+        >
+        <div *ngIf="submitted && forSignUp?.password?.errors?.required" class="invalid-feedback">
+          {{(forSignUp?.password?.errors?.required ? 'Password is required.' : null)}}
+        </div>
+      </div>
+    </div>
+    <div id="input-group-2" role="group" class="form-group">
+      <label id="input-group-2__BV_label_" for="input-5" class="d-block">Confirm Password</label>
+      <div>
+        <input
+          id="input-5"
+          class="form-control"
+          type="password"
+          maxlength="25"
+          autocomplete="off"
+          placeholder="Enter Same Password Again"
+          required
+          formControlName="confirm_password"
+          [ngClass]="{'is-invalid' : submitted && forSignUp?.confirm_password?.errors?.mustMatch}"
+        >
+        <div *ngIf="submitted && (forSignUp?.confirm_password?.errors?.required || forSignUp?.confirm_password?.errors?.mustMatch)" class="invalid-feedback">
+          {{((forSignUp?.confirm_password?.errors?.required)) ? 'Confirm password is required.' : (forSignUp?.confirm_password?.errors?.mustMatch ? 'Passwords dont match' : null)}}
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark mt-5">submit</button>
+  </form>

@@ -1,0 +1,7 @@
+<button *ngIf="!isAuthorized" (click)="routeTo('login')" class="btn btn-primary mr-5 mb-5">Login</button>
+<button *ngIf="!isAuthorized" (click)="routeTo('signUp')" class="btn btn-secondary mb-5">Sign Up</button>
+
+<div class="d-flex">
+    <!-- <span *ngIf="isAuthorized" class="avatar-container mr-5"><img src="./../../assets/prchot.png" alt="">{{'prchot' | uppercase}}</span> -->
+    <button *ngIf="isAuthorized" (click)="logOut()" class="btn btn-primary">{{'Log Out' | uppercase}}</button>
+</div>

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+// bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/mixins";
+
+body {
+    padding: 50px;
+}
+
+.mr-5{
+    margin-right: 1rem;
+}
+
+.mt-5{
+    margin-right: 1rem;
+}
+
+.ml-5{
+    margin-right: 1rem;
+}
+
+.mb-5{
+    margin-right: 1rem;
+}

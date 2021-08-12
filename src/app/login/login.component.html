@@ -1,0 +1,46 @@
+<div class="p-5 text-center bg-light">
+  <h4 class="mb-3">Log in</h4>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+    <div id="input-group-1" role="group" class="form-group">
+      <label id="input-group-1__BV_label_" for="input-3" class="d-block">Email</label>
+      <div>
+        <input 
+          id="input-3"
+          class="form-control"
+          type="email"
+          maxlength="50"
+          pattern='[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,50}$'
+          autocomplete="off"
+          placeholder="Enter Email"
+          required
+          formControlName="email"
+          [ngClass]="{'is-invalid' : submitted && (forLogin?.email?.errors?.email || forLogin?.email?.errors?.required)}"
+        >
+        <div *ngIf="submitted && (forLogin?.email?.errors?.email || forLogin?.email?.errors?.required)" class="invalid-feedback">
+            {{((forLogin?.email?.errors?.email && !forLogin?.email?.errors?.required)) ? 'Email is wrong.' : (((!forLogin?.email?.errors?.email && forLogin?.email?.errors?.required)) ? 'Email is required.' : null)}}
+      </div>
+      </div>
+    </div>
+    <div id="input-group-2" role="group" class="form-group">
+      <label id="input-group-2__BV_label_" for="input-4" class="d-block">Password</label>
+      <div>
+        <input
+          id="input-4"
+          class="form-control"
+          type="password"
+          maxlength="25"
+          autocomplete="off"
+          placeholder="Enter Password"
+          required
+          formControlName="password"
+          [ngClass]="{'is-invalid' : submitted && forLogin?.password?.errors?.required}"
+        >
+        <div *ngIf="submitted && forLogin?.password?.errors?.required" class="invalid-feedback">
+          {{(forLogin?.password?.errors?.required ? 'Password is required.' : null)}}
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-dark mt-5">submit</button>
+  </form>
+

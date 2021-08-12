@@ -1,0 +1,117 @@
+.canvas-component {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: auto 100px;
+    height: auto;
+  }
+  
+  .controls-panel {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 1 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 40px;
+  }
+  
+  .circles-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 380px;
+  }
+  
+  .active {
+    background-color: rgb(145, 58, 58);
+    color: #eee;
+  }
+  
+  .projects-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 40px;
+  }
+  
+  .project {
+    display: flex;
+    margin-left: 5px;
+    padding: 2px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+  
+  .circles-container.container-100 {
+    width: 280px;
+  }
+  
+  .circles-container.container-225 {
+    width: 420px;
+  }
+  
+  .container-400 {
+    width: 560px;
+  }
+  
+  .button-generate {
+    margin-left: 10px;
+  }
+  
+  .picker-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000000;
+    margin-left: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  
+  .picker-inner {
+    display: flex;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 30px;
+  }
+  
+  .picker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 30px;
+    opacity: 0;
+  }
+  
+  .button-reset {
+    margin-left: 10px;
+  }
+  
+  .button-fill-all {
+    margin-left: 10px;
+  }
+  
+  .btn {
+    outline: 1px solid #709da8;
+    color: rgba(0, 0, 0, 0.993);
+    background-color: #fff;
+  
+  }
+  
+  .btn:hover{
+    background-color: #709da8;
+    color: #fff;
+  }
+  .delete {
+  margin: 10px;
+  }
